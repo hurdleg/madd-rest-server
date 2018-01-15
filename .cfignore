@@ -1,0 +1,8 @@
+node_modules/
+*.DS_Store
+.github/
+.git/
+.gitignore
+logs
+*.log
+unit_tests/
