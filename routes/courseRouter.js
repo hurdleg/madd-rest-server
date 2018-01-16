@@ -88,15 +88,13 @@ courseRouter.route('/form')
     console.log( request.body );
 });
 
+/**
+ * HTTP GET /courses/count
+ * Returns: the number of courses
+ */
 courseRouter.route('/count')
 .get(function (request, response, next) {
     response.status(200).json({message: coursesDB.count()});
-});
-
-courseRouter.route('/reset')
-.get(function (request, response, next) {
-    coursesDB.reset();
-    return response.status(200).json({message: coursesDB.count()} );
 });
 
 /**
