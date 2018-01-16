@@ -1,5 +1,4 @@
 var express = require('express');
-var path = require('path');
 var multer = require('multer');						// for parsing multipart/form-dat
 var upload = multer();
 
