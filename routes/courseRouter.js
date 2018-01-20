@@ -20,21 +20,21 @@ courseRouter.route('/')
  * Create a new course.
  * Param: course JSONObject
  * Returns: the newly created courses in JSON
- * Error: 500 HTTP code if the course cannot be created
+ * Error: 405 HTTP code if the course cannot be created
  */
 .post(function (request, response, next) {
     // Validation rule: mandatory properties
     if ( request.body.code == null ) {
-        return response.status( 500 ).json( {message: "Error: missing code (string)"} );
+        return response.status( 405 ).json( {message: "Error: missing code (string)"} );
     }
     if ( request.body.name == null ) {
-        return response.status( 500 ).json( {message: "Error: missing name (string)"} );
+        return response.status( 405 ).json( {message: "Error: missing name (string)"} );
     }
     if ( request.body.description == null ) {
-        return response.status( 500 ).json( {message: "Error: missing description (string)"} );
+        return response.status( 405 ).json( {message: "Error: missing description (string)"} );
     }
     if ( request.body.level == null ) {
-        return response.status( 500 ).json( {message: "Error: missing level (int)"} );
+        return response.status( 405 ).json( {message: "Error: missing level (int)"} );
     }
 
     // Validation rule: force courseId (if exists)
@@ -53,22 +53,22 @@ courseRouter.route('/')
  * Create a new course using a multipart form
  * Param: course JSONObject
  * Returns: the newly created course in JSON
- * Error: 500 HTTP code if the course cannot be created
+ * Error: 405 HTTP code if the course cannot be created
  */
 courseRouter.route('/form')
 .post(upload.array(), function (request, response, next) {
     // Validation rule: mandatory properties
     if ( request.body.code == null ) {
-        return response.status( 500 ).json( {message: "Error: missing code (string)"} );
+        return response.status( 405 ).json( {message: "Error: missing code (string)"} );
     }
     if ( request.body.name == null ) {
-        return response.status( 500 ).json( {message: "Error: missing name (string)"} );
+        return response.status( 405 ).json( {message: "Error: missing name (string)"} );
     }
     if ( request.body.description == null ) {
-        return response.status( 500 ).json( {message: "Error: missing description (string)"} );
+        return response.status( 405 ).json( {message: "Error: missing description (string)"} );
     }
     if ( request.body.level == null ) {
-        return response.status( 500 ).json( {message: "Error: missing level (int)"} );
+        return response.status( 405 ).json( {message: "Error: missing level (int)"} );
     }
 
     // Validation rule: force coursesId (if exists)
@@ -78,7 +78,7 @@ courseRouter.route('/form')
 
     request.body.level = parseInt(request.body.level);
     if ( (request.body.level < 1) || (request.body.level > 4) ) {
-        return response.status( 500 ).json( {message: "Level must be in range 1 to 4 (inclusive)"} );
+        return response.status( 405 ).json( {message: "Level must be in range 1 to 4 (inclusive)"} );
     }
 
     coursesDB.save( request.body );
@@ -117,7 +117,7 @@ courseRouter.route('/:courseId')
  * Param: :courseId is the unique identifier of the course you want to update
  * Returns: the updated courses in JSON
  * Error: 404 HTTP code if the course doesn't exist
- * Error: 500 HTTP code if the course can't be updated
+ * Error: 405 HTTP code if the course can't be updated
  */
 .put(function (request, response, next) {
     try {
@@ -125,27 +125,27 @@ courseRouter.route('/:courseId')
 
         // Validation rule: mandatory properties
         if ( request.body.code == null ) {
-            return response.status( 500 ).json( {message: "Error: missing code (string)"} );
+            return response.status( 405 ).json( {message: "Error: missing code (string)"} );
         }
         if ( request.body.name == null ) {
-            return response.status( 500 ).json( {message: "Error: missing name (string)"} );
+            return response.status( 405 ).json( {message: "Error: missing name (string)"} );
         }
         if ( request.body.description == null ) {
-            return response.status( 500 ).json( {message: "Error: missing description (string)"} );
+            return response.status( 405 ).json( {message: "Error: missing description (string)"} );
         }
         if ( request.body.level == null ) {
-            return response.status( 500 ).json( {message: "Error: missing level (int)"} );
+            return response.status( 405 ).json( {message: "Error: missing level (int)"} );
         }
 
         request.body.level = parseInt(request.body.level);
         if ( (request.body.level < 1) || (request.body.level > 4) ) {
-            return response.status( 500 ).json( {message: "Level must be in range 1 to 4 (inclusive)"} );
+            return response.status( 405 ).json( {message: "Level must be in range 1 to 4 (inclusive)"} );
         }    
 
         // Validation rule: body's courseId must match query param's courseId
         if ( request.body.courseId != null ) {
             if (request.body.courseId != request.params.courseId) {
-                return response.status( 500 )
+                return response.status( 405 )
                         .json( {message: "Error: courseId does not match"} );
             }
         }
@@ -173,7 +173,6 @@ courseRouter.route('/:courseId')
  * Param: :courseId is the unique identifier of the course you want to delete
  * Returns: the courses with the specified :courseId in a JSON format
  * Error: 404 HTTP code if the course doesn't exist
- * Error: 500 HTTP code if the course can't be deleted
  */
 .delete(function (request, response, next) {
     try {
@@ -197,27 +196,27 @@ courseRouter.route('/:courseId/form')
 
         // Validation rule: mandatory properties
         if ( request.body.code == null ) {
-            return response.status( 500 ).json( {message: "Error: missing code (string)"} );
+            return response.status( 405 ).json( {message: "Error: missing code (string)"} );
         }
         if ( request.body.name == null ) {
-            return response.status( 500 ).json( {message: "Error: missing name (string)"} );
+            return response.status( 405 ).json( {message: "Error: missing name (string)"} );
         }
         if ( request.body.description == null ) {
-            return response.status( 500 ).json( {message: "Error: missing description (string)"} );
+            return response.status( 405 ).json( {message: "Error: missing description (string)"} );
         }
         if ( request.body.level == null ) {
-            return response.status( 500 ).json( {message: "Error: missing level (int)"} );
+            return response.status( 405 ).json( {message: "Error: missing level (int)"} );
         }
 
         request.body.level = parseInt(request.body.level);
         if ( (request.body.level < 1) || (request.body.level > 4) ) {
-            return response.status( 500 ).json( {message: "Level must be in range 1 to 4 (inclusive)"} );
+            return response.status( 405 ).json( {message: "Level must be in range 1 to 4 (inclusive)"} );
         }    
 
         // Validation rule: body's courseId must match query param's courseId
         if ( request.body.courseId != null ) {
             if (request.body.courseId != request.params.courseId) {
-                return response.status( 500 )
+                return response.status( 405 )
                         .json( {message: "Error: courseId does not match"} );
             }
         }
