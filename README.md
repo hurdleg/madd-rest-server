@@ -42,9 +42,9 @@
    * https://madd.mybluemix.net/courses
    * https://madd.mybluemix.net/courses/{0..4}
 
-#### Enjoy!      
-*hurdleg*
-
 ## Source Code
 Available from GitHub:
 https://github.com/hurdleg/madd-rest-server
+
+#### Enjoy!      
+*hurdleg*
