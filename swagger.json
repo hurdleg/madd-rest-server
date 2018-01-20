@@ -92,7 +92,7 @@
             "description": "Successful response",
             "examples": {
               "application/json": {
-                "count": 4
+                "message": 4
               }
             }
           }
@@ -126,9 +126,6 @@
             "schema": {
               "$ref": "#/definitions/Course"
             }
-          },
-          "400": {
-            "description": "Invalid Id supplied"
           },
           "404": {
             "description": "Course not found"
@@ -168,11 +165,8 @@
           }
         ],
         "responses": {
-          "400": {
-            "description": "Invalid ID supplied"
-          },
           "404": {
-            "description": "Pet not found"
+            "description": "Course not found"
           },
           "405": {
             "description": "Validation exception"
@@ -200,9 +194,6 @@
           }
         ],
         "responses": {
-          "400": {
-            "description": "Invalid Id supplied"
-          },
           "404": {
             "description": "Course not found"
           }
@@ -227,28 +218,28 @@
           {
             "name": "code",
             "in": "formData",
-            "description": "New course code. Example, MAD9132",
+            "description": "New course code. Example: MAD9132",
             "required": true,
             "type": "string"
           },
           {
             "name": "name",
             "in": "formData",
-            "description": "New course name. Example, Android Application Development",
+            "description": "New course name. Example: Android Application Development",
             "required": true,
             "type": "string"
           },
           {
             "name": "description",
             "in": "formData",
-            "description": "New course description. Example, Let's write native Android apps with Java!",
+            "description": "New course description. Example: Let's write native Android apps with Java!",
             "required": true,
             "type": "string"
           },
           {
             "name": "level",
             "in": "formData",
-            "description": "New course level. Must be in the range [1..4]. Example, 3",
+            "description": "New course level. Domain range [1..4]. Example: 3",
             "required": true,
             "type": "integer"
           }
@@ -286,28 +277,28 @@
           {
             "name": "code",
             "in": "formData",
-            "description": "Updated course code. Example, MAD9145",
+            "description": "Updated course code. Example: MAD9145",
             "required": true,
             "type": "string"
           },
           {
             "name": "name",
             "in": "formData",
-            "description": "Updated course name. Example, Applied Project",
+            "description": "Updated course name. Example: Applied Project",
             "required": true,
             "type": "string"
           },
           {
             "name": "description",
             "in": "formData",
-            "description": "Updated course description. Example, It's Go Time!",
+            "description": "Updated course description. Example: It's Go Time!",
             "required": true,
             "type": "string"
           },
           {
             "name": "level",
             "in": "formData",
-            "description": "Updated course level. Must be in the range [1..4]. Example, 4",
+            "description": "Updated course level. Domain range [1..4]. Example: 4",
             "required": true,
             "type": "integer"
           }
@@ -331,19 +322,19 @@
         },
         "code": {
           "type": "string",
-          "description": "the code of this course. For example, MAD9132"
+          "description": "Course code. Example: MAD9132"
         },
         "name": {
           "type": "string",
-          "description": "the name of this course. For example, Android Application Development"
+          "description": "Course name. Example: Android Application Development"
         },
         "description": {
           "type": "string",
-          "description": "more information about this course"
+          "description": "More information about the course. Example: Let's write native Android apps with Java!"
         },
         "level": {
           "type": "integer",
-          "description": "the level of this course",
+          "description": "Course level. Domain range [1..4]. Example: 3",
           "enum": [
             1,
             2,
