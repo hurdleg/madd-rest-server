@@ -99,7 +99,7 @@ courseRouter.route('/count')
 /**
  * HTTP GET /courses/:courseId
  * Param: :courseId is the unique identifier of the course you want to retrieve
- * Returns: the course with the specified :courseId in a JSON format
+ * Returns: the course with the specified :courseId in JSON
  * Error: 404 HTTP code if the course doesn't exist
  */
 courseRouter.route('/:courseId')
@@ -115,7 +115,7 @@ courseRouter.route('/:courseId')
 /**
  * HTTP PUT /courses/:courseId
  * Param: :courseId is the unique identifier of the course you want to update
- * Returns: the updated courses in JSON
+ * Returns: the updated course in JSON
  * Error: 404 HTTP code if the course doesn't exist
  * Error: 405 HTTP code if the course can't be updated
  */
@@ -171,7 +171,7 @@ courseRouter.route('/:courseId')
 /**
  * HTTP DELETE /courses/:courseId
  * Param: :courseId is the unique identifier of the course you want to delete
- * Returns: the courses with the specified :courseId in a JSON format
+ * Returns: the course with the specified :courseId in a JSON format
  * Error: 404 HTTP code if the course doesn't exist
  */
 .delete(function (request, response, next) {
@@ -189,6 +189,14 @@ courseRouter.route('/:courseId')
     }
 });
 
+/**
+ * HTTP PUT /courses/:courseId/form
+ * Update an existing course using a multipart form
+ * Param: :courseId is the unique identifier of the course you want to update
+ * Returns: the updated course in JSON
+ * Error: 404 HTTP code if the course doesn't exist
+ * Error: 405 HTTP code if the course cannot be updated
+ */
 courseRouter.route('/:courseId/form')
 .put(upload.array(), function (request, response, next) {
     try {

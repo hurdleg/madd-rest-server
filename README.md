@@ -1,17 +1,8 @@
 # RESTful API Server for Mobile Application Design & Development (MAD&D)
 
-## Suported RESTful API
+### API Documentation
 
-| Title                  | URL                     | Request type | Parameters | Expected Responses         |
-|------------------------|:-----------------------:|:------------:|:----------:|:--------------------------:|
-| Get list of courses    | /courses                | GET          | n/a        | Success: 200, Failure: 404 |
-| Get number of courses  | /courses/count          | GET          | n/a        | Success: 200, Failure: 404 |
-| Get course by ID       | /courses/:courseId      | GET          | courseId   | Success: 200, Failure: 404 |
-| Create course          | /courses                | POST         |            | Success: 200, Failure: 404 |
-| Create course          | /courses/form           | POST         |            | Success: 200, Failure: 404 |
-| Update course by ID    | /courses/:courseId      | PUT          | courseId   | Success: 200, Failure: 404 |
-| Update course by ID    | /courses/:courseId/form | PUT          | courseId   | Success: 200, Failure: 404 |
-| Delete course by ID    | /courses/:courseId      | DELETE       | courseId   | Success: 200, Failure: 404 |
+1. https://madd.mybluemix.net/api-docs
 
 ## Installation (Bluemix)
 1. build and test app http://localhost:3000
